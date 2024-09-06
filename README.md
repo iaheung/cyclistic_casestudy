@@ -97,12 +97,11 @@ The data analysis can be seperated into 3 main areas:
 ### Hourly Behaviour
 A significant portion of members users likely use the sharebike service for commuting to work or school. Between 5:00 and 9:00, **20.41%** of member rides occur, compared to only **11.26%** for casual rides. It can be assumed that members primarily use sharebikes for commuting during these hours. On the other hand, between 10:00 to 15:00, casual rides overtake member rides, which is expected since commuters are less likely to ride during work hours. Casual riders during this period may include students heading to classes, tourists, or people riding leisurely or for exercise. Interestingly, between 16:00 and 18:00, we see a spike in bike usage for both members and casual riders, with **28.24%** of member rides and **26.81%** of casual rides taking place during this short time frame. While the increase for members aligns with typical commute patterns, the increase in casual rides also raises questions about the causes of this sudden increase. It may be due to non-members trying the service after work or simply because the time frame is a popular time for biking, possibly influenced by favorable weather or other external factors.
 
-<p align="center">
-  <table>
-    <tr>
-      <td><img src="plots/rides_by_hour_count.png" alt="Image 1" width="650"/></td>
-      <td><img src="plots/rides_by_hour_percentage.png" alt="Image 2" width="650"/></td>
-    </tr>
-  </table>
-</p>
+![Cyclistic Bike](plots/rides_by_hour_percentage.png)
 
+<figure>
+  <img src="plots/rides_by_hour_percentage.png" alt="Cyclistic Bike" width="400">
+  <figcaption>Figure 1: Percentage of Rides by Hour for Cyclistic</figcaption>
+</figure>
+
+It's expected that casual users primarily ride the bikes on weekends, as they might not see the value in subscribing to a membership. Casual riders may only use the service a few times a year, or the pricing structure may not appeal to those riding mostly on weekends. This is reflected in the data, with 51.72% of casual rides occurring on weekends (including Friday), compared to only 37.98% of member rides during the same period. When we examine the ridership numbers for members during the workweek (Monday through Friday), the percentage of member rides jumps to 76.09%, highlighting the tendency for members to ride primarily during weekdays, likely for commuting.
