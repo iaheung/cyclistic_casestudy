@@ -12,10 +12,13 @@ The **Cyclistic Bike Share Case Study** is a capstone project for the **Google D
 - [Data Sources](#data-sources)
 - [Data Cleaning and Processing Methodology](#data-cleaning-and-processing-methodology)
 - [Analysis Summary](#analysis-summary)
+- [Conclusions](#conclusions)
+- [Recommendations](#recommendations)
+- [Data Limitations and Improvements](#data-limitations-and-improvements)
 
 ## Contents and Usage
 
-The following repository is composed of mainly notebooks detailing the whole data analysis process, from data preperation, exploration, cleaning, transformation, analysis, and visualization. There are three notebooks, each focusing on different stages of the data cycle. The code within the notebooks is a mix of Python and SQL, but the SQL queries are made inside a Python enviroment with the usage of packages to conenct to a local MySQL server. The order is as follows:
+The following repository is composed of mainly notebooks detailing the whole data analysis process, from data preperation, exploration, cleaning, transformation, analysis, and visualization. There are three notebooks, each focusing on different stages of the data cycle. The code within the notebooks is a mix of Python and SQL, but the SQL queries are made inside a Python environment with the usage of packages to connect to a local MySQL server. The order is as follows:
 
 1. `data_preperation.ipynb` — Data Preperation (Pandas and SQL)
 2. `data_cleaning.ipynb` — Data Exploration, Data Cleaning (SQL)
@@ -70,17 +73,17 @@ annual members and casual riders differ, why casual riders would buy a membershi
 digital media could affect their marketing tactics. The marketing director and their team are interested in
 analyzing the Cyclistic historical bike trip data to identify trends.
 
-## Buisness Task
+## Business Task
 
-**Using Cyclistic's bike trip data from the past year, identify key differences in ridership behaviour between casual riders and members. The main objective is to use the data to develope actionable insights to inform marketing strategies aimed at increasing the number of members by targeting casual riders.**
+**Using Cyclistic's bike trip data from the past year, identify key differences in ridership behaviour between casual riders and members. The main objective is to use the data to develop actionable insights to inform marketing strategies aimed at increasing the number of members by targeting casual riders.**
 
 ## Data Sources
 
-The data was obtained from an [online database](https://divvy-tripdata.s3.amazonaws.com/index.html), and the data is made avaible by Motivate International Inc. under this [license](https://divvybikes.com/data-license-agreement). I have downloaded the ridershare data from the past 12 months (August 2023 - July 2024). The code in this notebook is compatible with data from past or future time frames.
+The data was obtained from an [online database](https://divvy-tripdata.s3.amazonaws.com/index.html), and the data is made available by Motivate International Inc. under this [license](https://divvybikes.com/data-license-agreement). I have downloaded the ridershare data from the past 12 months (August 2023 - July 2024). The code in this notebook is compatible with data from past or future time frames.
 
 ## Data Cleaning and Processing Methodology
 
-The data cleaning and processing was mostly done in SQL. In the `data_preperation.ipynb` notebook, the data from each month was first combined into one larger dataframe and put onto a local MySQL server. 
+The data cleaning and processing was mostly done in SQL. In the `data_preparation.ipynb` notebook, the data from each month was first combined into one larger dataframe and put onto a local MySQL server. 
 
 In the `data_cleaning.ipynb` notebook, I used SQL queries to explore the general structure of the data, and cleaned the data by converting column data types, interpreting null values, and removing invalid data, ensuring the data is prepared to be used for efficient and accurate data analysis. 
 
@@ -135,7 +138,7 @@ From our analysis and the histogram, the mean trip time for casual riders is 22 
 #### Distance Traveled
 ![DistanceTraveled](plots/distance_traveled.png)
 
-A limitation of the distance traveled measurement is its inability to determine what was the exact distance traveled or route a rider took, since the distance calculation is simply a straight line from the start and end latitudes and longitudes. Although we don't have the route information, we can inferred an estimated distance traveled by using the Haversine formula. The distances are then binned into a histogram. Although the mean distance is almost the same for both groups, there are significantly more rides close to zero in distance completed by casual riders. This is due to how we calculated distance traveled. Lots of casual riders might start and end their ride at the same station. They might choose to bike a certain route to a sightseeing spot, and return to where they started the ride from. This is a possible explanation for the unusual number of short rides. Another possible explanation is first-time riders being unfamiliar with the sharebike software, leading them to accidentally rent a bike multiple times. Unless we have more data on the route taken by users, this is the best guess we can make on the distance data extrapolated from latitude and longitude.
+A limitation of the distance traveled measurement is its inability to determine what was the exact distance traveled or route a rider took, since the distance calculation is simply a straight line from the start and end latitudes and longitudes. Although we don't have the route information, we can infer an estimated distance traveled by using the Haversine formula. The distances are then binned into a histogram. Although the mean distance is almost the same for both groups, there are significantly more rides close to zero in distance completed by casual riders. This is due to how we calculated distance traveled. Lots of casual riders might start and end their ride at the same station. They might choose to bike a certain route to a sightseeing spot, and return to where they started the ride from. This is a possible explanation for the unusual number of short rides. Another possible explanation is first-time riders being unfamiliar with the sharebike software, leading them to accidentally rent a bike multiple times. Unless we have more data on the route taken by users, this is the best guess we can make on the distance data extrapolated from latitude and longitude.
 
 ### Conclusions
 In the analysis of bike trip data from Cyclistic, clear differences between casual riders and members emerge, showing how each group uses the bike-share service in distinct ways. These insights are crucial for tailoring marketing strategies aimed at converting casual riders into members. 
@@ -147,7 +150,7 @@ In the analysis of bike trip data from Cyclistic, clear differences between casu
 **Geographic Preferences Highlight Different Use Cases:** The location data reveals that casual riders favor bike stations along the Lake Michigan coast, which are likely near tourist attractions and recreational areas. Members, however, prefer stations in urban areas near offices and college campuses. This suggests that casual riders use the service to explore and enjoy the city, while members use it for practical, daily travel needs. The higher average trip time for casual riders (22 minutes) compared to members (13 minutes) supports this, as casual riders likely take longer trips for leisure, whereas members take shorter trips and are more utilitarian.
 
 ### Recommendations
-Given the results from our analysis and the conclusions drawn, there are lots of oppertunities to develop marketing strategies based on our newly found insights from the data. While there are various ways to convert casual users to members, it's also important to understand why casual riders might remain casual riders. By knowing the motivations of casual riders, we can better meet their needs by creating tailored passes and membership plans.
+Given the results from our analysis and the conclusions drawn, there are lots of opportunities to develop marketing strategies based on our newly found insights from the data. While there are various ways to convert casual users to members, it's also important to understand why casual riders might remain casual riders. By knowing the motivations of casual riders, we can better meet their needs by creating tailored passes and membership plans.
 
 **Set Ride Passes:** Instead of offering memberships with unlimited rides for a set period, consider creating a membership that allows riders to purchase a set of maybe 10 rides at a discounted price. Since most casual users ride for leisure and do not follow a fixed schedule, a set ride pass would let them use their 10 rides at their convenience. Additionally, including an expiry date on the passes can incentivize users to bike more frequently within a given timeframe.
 
