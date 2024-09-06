@@ -11,6 +11,7 @@ The **Cyclistic Bike Share Case Study** is a capstone project for the **Google D
 - [Business Task](#buisness-task)
 - [Data Sources](#data-sources)
 - [Data Cleaning and Processing Methodology](#data-cleaning-and-processing-methodology)
+- [Analysis Summary](#analysis-summary)
 
 ## Contents and Usage
 
@@ -88,11 +89,16 @@ In the `data_analysis.ipynb` notebook, new columns such as trip time and distanc
 For more comprehensive details and documentation on the steps and methodology used, please review each of the notebooks.
 
 ## Analysis Summary
+Overall, around 36% of the rides completed were by casual riders and 64% of the rides completed by members. This does not mean there are more members than casual riders, but there are more total rides completed by members as compared to casual riders. This makes sense as we expect members to use the services more regularly than casual riders. There is no information on individual riders, so we cannot guess the number of unique riders for both groups. But, we can analyze differences in their ridership behaviours. 
+
 The data analysis can be seperated into 3 main areas:
 
-- Temporal Analysis (Time of Day, Day of Week, Month)
-- Locaation Analysis
-- Ride Duration and Distance
+- Timeframe Analysis (Time of Day, Day of Week, Month)
+- Location Analysis
+- Trip Time and Distance
+
+### Timeframe Analysis
+The time frames were obtained from the start time of each trip. By converting the start time column into datetime datatype earlier, we were able to extract the hour, day of the week, and month of each ride easily.
 
 #### Comparison by Time of Day
 ![HourlyPercentage](plots/rides_by_hour_percentage.png)
@@ -100,18 +106,41 @@ The data analysis can be seperated into 3 main areas:
 A significant portion of members users likely use the sharebike service for commuting to work or school. Between 5:00 and 9:00, **20.41%** of member rides occur, compared to only **11.26%** for casual rides. It can be assumed that members primarily use sharebikes for commuting during these hours. On the other hand, between 10:00 to 15:00, casual rides overtake member rides, which is expected since commuters are less likely to ride during work hours. Casual riders during this period may include students heading to classes, tourists, or people riding leisurely or for exercise. Interestingly, between 16:00 and 18:00, we see a spike in bike usage for both members and casual riders, with **28.24%** of member rides and **26.81%** of casual rides taking place during this short time frame. While the increase for members aligns with typical commute patterns, the increase in casual rides also raises questions about the causes of this sudden increase. It may be due to non-members trying the service after work or simply because the time frame is a popular time for biking, possibly influenced by favorable weather or other external factors.
 
 #### Comparison by Day of the Week
-![DailyPercentage](plots/rides_by_day_percentrage.png)
+![DailyPercentage](plots/rides_by_day_percentage.png)
 It's expected that casual users primarily ride the sharebikes on weekends, as they might not see the value in subscribing to the membership if they do not use the bikes for daily commuting. This is reflected in the data, with **51.72%** of casual rides occurring on weekends (including Friday), compared to only **37.98%** of member rides during the same days. When we examine the ridership numbers for members during the workweek (Monday through Friday), the percentage of member rides jumps to **76.09%**, further suggesting that member riders use the service most often for commuting.
 
 #### Comparison by Month
-![MonthlyPercentage](plots/rides_by_month_percentrage.png)
+![MonthlyPercentage](plots/rides_by_month_percentage.png)
 Given Chicago's harsh winters, it makes sense that cycling becomes less appealing during the colder months. This trend is evident in the data, showing a noticeable increase in rides during the warmer months for both membership groups. From May to September, **almost 70%** (69.86%) of non-member rides occur between those months, compared to **56.80%** of member rides. This indicates that casual riders are more likely to use the cycling service during the warmer seasons, perhaps for sightseeing or urban transportation, suggesting that the pleasant weather encourages more use of the service among non-members.
 
-#### Location Data
+### Location Data
 ![Locations](plots/LocationScreenshot.png)
 
-[View the map](plots/stations_map.html)
+Folium was used to generate this map by using the latitude and longitude data of each station. There is an issue with displaying the interactive map, so I have included a screenshot of the map. If you would like to see the interactive map, please run the cells the `data_analysis.ipynb` notebook.  
 
-Folium was used to generate this map. There might be issues with displaying the interactive map, so here idoesn't come with a built-in legend, so I've used <span style="color: gray;">gray</span> markers to indicate the top 10 most popular stations for <span style="color: gray;">casual riders</span> and <span style="color: cyan;">blue</span> markers for the top 10 stations for <span style="color: cyan;">members</span>.
+The map doesn't come with a built-in legend, so I've used gray markers to indicate the top 10 most popular stations for casual riders and blue markers for the top 10 stations for members.
 
-From the map, a clear trend emerges. Despite not being a local resident of Chicago or having extensive knowledge of the area, the data shows distinct patterns: casual riders tend to use sharebikes along the Lake Michigan coast, where there are more tourist attractions and leisure activities. In contrast, members generally favor sharebikes within urban areas, likely for commuting or urban transport. Notably, one of the most popular locations for members is near the University of Chicago, suggesting that a significant number of users might be using the bikes to travel around campus.
+From the map, a clear trend in the most popular stations emerges. Despite not being a local resident of Chicago or having extensive knowledge of the area, the data shows distinct patterns: casual riders tend to use sharebikes along the Lake Michigan coast, where there are more tourist attractions and leisure activities. In contrast, members generally favor sharebikes within urban areas, likely for commuting or urban transport. Notably, one of the most popular locations for members is near the University of Chicago, which is the southern most blue marker location, suggesting that a significant number of users might be using the bikes to travel around campus.
+
+### Trip Time and Distance Traveled
+New data columns of Ride Time and Distance Traveled were added during the data transformation step to allow for more metrics to be used in analysis. These two metrics were calculated from the ride start and end time difference and ride start and end latitude and longitude difference respectively.
+
+#### Trip Time
+![RideTime](plots/trip_time.png)
+
+From our analysis and the histogram, the mean trip time for casual riders is 22 minutes, while the mean trip time for member riders is 13 minutes, which is almost half the time of casual riders. From our earlier data analysis, we saw that the most popular stations for casual riders were likely in sightseeing areas, while for member riders, most stations were in urban areas. In a city like Chicago with a metro system, it is unlikely that a commuter would ride a bike for more than 15 minutes for commuting purposes if they can take the metro for longer distances. On the other hand, casual riders who are taking trips along Lake Michigan and sightseeing areas would likely want to ride for longer periods of time to enjoy the nature and explore various tourist attractions. Although these are speculations, it is likely that these factors have an effect on the trip time discrepancy between casual riders and members.
+
+#### Distance Traveled
+![DistanceTraveled](plots/distance_traveled.png)
+A limitation of the distance traveled measurement is its inability to determine what was the exact distance traveled or route a rider took, since the distance calculation is simply a straight line from the start and end latitudes and longitudes. Although we don't have the route information, we can inferred an estimated distance traveled by using the Haversine formula. The distances are then binned into a histogram. Although the mean distance is almost the same for both groups, there are significantly more rides close to zero in distance completed by casual riders. This is due to how we calculated distance traveled. Lots of casual riders might start and end their ride at the same station. They might choose to bike a certain route to a sightseeing spot, and return to where they started the ride from. This is a possible explanation for the unusual number of short rides. Another possible explanation is first-time riders being unfamiliar with the sharebike software, leading them to accidentally rent a bike multiple times. Unless we have more data on the route taken by users, this is the best guess we can make on the distance data extrapolated from latitude and longitude.
+
+### Conclusions
+In the analysis of bike trip data from Cyclistic, clear differences between casual riders and members emerge, showing how each group uses the bike-share service in distinct ways. These insights are crucial for tailoring marketing strategies aimed at converting casual riders into members. 
+
+**Usage Patterns Reflect Different Motivations:** Casual riders and members exhibit distinct usage patterns that reflect their different motivations. Members, who are likely using the service for commuting, show a clear peak rides usage during typical work or school commute times. In contrast, casual riders use the service more during midday and weekends, likely for leisure activities, sightseeing, or recreational purposes. This difference suggests that while members value the service for daily transportation, casual riders prefer it for occasional or leisurely trips.
+
+**Seasonal and Weather-Related Trends:** Both casual riders and members show increased usage during the warmer months, but casual riders are particularly more prevalent during this period. Almost 70% of casual rides occur from May to September, compared to 56.80% of member rides. This trend indicates that warmer weather significantly influences casual riders’ decisions to use the service, likely for tourism or outdoor activities. On the other hand, members’ ride patterns are less affected by seasonal changes, likely due to their use being more consistent annually for commuting.
+
+**Geographic Preferences Highlight Different Use Cases:** The location data reveals that casual riders favor bike stations along the Lake Michigan coast, which are likely near tourist attractions and recreational areas. Members, however, prefer stations in urban areas near offices and college campuses. This suggests that casual riders use the service to explore and enjoy the city, while members use it for practical, daily travel needs. The higher average trip time for casual riders (22 minutes) compared to members (13 minutes) supports this, as casual riders likely take longer trips for leisure, whereas members take shorter trips and are more utilitarian.
+
+### Recommendations
