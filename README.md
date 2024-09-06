@@ -1,59 +1,81 @@
-# cyclistic_casestudy
-Capstone Project (Google Data Analytics Course): Cyclistic Ridership Case Study 
+# Cyclistic Bike Share Case Study
+## Google Data Analytics Course Capstone Project  
 
-## Documentation
+The **Cyclistic Bike Share Case Study** is a capstone project for the **Google Data Analytics Professional Certificate** on Coursera. In this project, use the skills I have learnt from the course, as well as applying some of my own Python and Pandas skills, to complete this capstone project. The goal of this project is to analyze publicly available ride data to generate insights on ridership patterns and differences between casual riders and members.  
 
-[File 1](#file-1) | [File 2](#file-2) | [File 3](#file-3)
+## Table of contents
+- [Table of contents](#table-of-contents)
+- [Contents and Usage](#contents-and-usage)
+- [Required Software and Packages](#required-software-and-packages)
+- [Project Background](#project-background)
 
----
+## Contents and Usage
 
-### File 1
-Detailed documentation for File 1 goes here.
+The following repository is composed of mainly notebooks detailing the whole data analysis process, from data preperation, exploration, cleaning, transformation, analysis, and visualization. There are three notebooks, each focusing on different stages of the data cycle. The code within the notebooks is a mix of Python and SQL, but the SQL queries are made inside a Python enviroment with the usage of packages to conenct to a local MySQL server. The order is as follows:
 
----
+1. `data_preperation.ipynb` — Data Preperation (Pandas and SQL)
+2. `data_cleaning.ipynb` — Data Exploration, Data Cleaning (SQL)
+3. `data_analysis.ipynb` — Data Transformation, Data Analysis, Data Visualization (Pandas)
 
-### File 2
-Detailed documentation for File 2 goes here.
+## Required Software and Packages
 
----
+Since data will be stored on a local MySQL server, a working version of MySQL will need to be installed on your device to run the code in these notebooks. To download, visit [this download page](https://dev.mysql.com/downloads/mysql/).
 
-### File 3
-Detailed documentation for File 3 goes here.
+There are also required Python packages to run the notebook codeblocks. Here are the list of required packages to be installed:
 
+- NumPy
+- Pandas
+- Folium
+- Matplotlib
+- ipython-sql
+- PyMySQL
+- SQLAlchemy
 
-<div class="tab">
-  <button class="tablinks" onclick="openTab(event, 'file1')">File 1</button>
-  <button class="tablinks" onclick="openTab(event, 'file2')">File 2</button>
-  <button class="tablinks" onclick="openTab(event, 'file3')">File 3</button>
-</div>
+##### Anaconda Installation
+```
+conda install numpy pandas folium matplotlib ipython-sql pymysql sqlalchemy
+```
 
-<div id="file1" class="tabcontent">
-  <h3>File 1 Documentation</h3>
-  <p>This is the documentation for File 1.</p>
-</div>
+##### pip Installation
+```
+pip install numpy pandas folium matplotlib ipython-sql pymysql sqlalchemy
+```
 
-<div id="file2" class="tabcontent" style="display:none">
-  <h3>File 2 Documentation</h3>
-  <p>This is the documentation for File 2.</p>
-</div>
+## Project Background
+In 2016, Cyclistic launched a successful bike-share offering. Since then, the program has grown
+to a fleet of 5,824 bicycles that are geotracked and locked into a network of 692 stations
+across Chicago. The bikes can be unlocked from one station and returned to any other station
+in the system anytime.
 
-<div id="file3" class="tabcontent" style="display:none">
-  <h3>File 3 Documentation</h3>
-  <p>This is the documentation for File 3.</p>
-</div>
+Until now, Cyclistic’s marketing strategy relied on building general awareness and appealing to
+broad consumer segments. One approach that helped make these things possible was the
+flexibility of its pricing plans: single-ride passes, full-day passes, and annual memberships.
+Customers who purchase single-ride or full-day passes are referred to as casual riders.
+Customers who purchase annual memberships are Cyclistic members.
 
-<script>
-function openTab(evt, fileName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(fileName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-</script>
+Cyclistic’s finance analysts have concluded that annual members are much more profitable
+than casual riders. Although the pricing flexibility helps Cyclistic attract more customers,
+the marketing director believes that maximizing the number of annual members will be key to future growth.
+Rather than creating a marketing campaign that targets all-new customers, the marketing director believes
+there is a solid opportunity to convert casual riders into members. She notes that casual riders
+are already aware of the Cyclistic program and have chosen Cyclistic for their mobility needs.
+
+The marketing director has set a clear goal: Design marketing strategies aimed at converting casual riders into
+annual members. In order to do that, however, the team needs to better understand how
+annual members and casual riders differ, why casual riders would buy a membership, and how
+digital media could affect their marketing tactics. The marketing director and their team are interested in
+analyzing the Cyclistic historical bike trip data to identify trends.
+
+## Buisness Task
+
+**Using Cyclistic's bike trip data from the past year, identify key differences in ridership behaviour between casual riders and members. The main objective is to use the data to develope actionable insights to inform marketing strategies aimed at increasing the number of members by targeting casual riders.**
+
+## Data Sources
+
+The data was obtained from an [online database](https://divvy-tripdata.s3.amazonaws.com/index.html), and the data is made avaible by Motivate International Inc. under this [license](https://divvybikes.com/data-license-agreement). I have downloaded the ridershare data from the past 12 months (August 2023 - July 2024). The code in this notebook is compatible with data from past or future time frames.
+
+## Data Cleaning and Processing Methodology
+
+The data cleaning and processing was mostly done in SQL. In the `data_preperation.ipynb` notebook, the data from each month was first combined into one larger dataframe and put onto a local MySQL server. Then in the `data_cleaning.ipynb` notebook, I used SQL queries to explore the general structure of the data, and cleaned the data by converting column data types, interpreting null values, and removing invalid data, ensuring the data is prepared to be used for efficient and accurate data analysis. Then in the `data_analysis.ipynb` notebook, new columns such as trip time and distance traveled were created by using data from the original columns to make new metrics to analyze ridership differences. Then using a variety of Pandas functions and data visualization packages, ridership trends and patterns were identified and visualized.
+
+## Analysis Summary
