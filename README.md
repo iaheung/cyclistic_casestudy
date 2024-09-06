@@ -107,10 +107,12 @@ A significant portion of members users likely use the sharebike service for comm
 
 #### Comparison by Day of the Week
 ![DailyPercentage](plots/rides_by_day_percentage.png)
+
 It's expected that casual users primarily ride the sharebikes on weekends, as they might not see the value in subscribing to the membership if they do not use the bikes for daily commuting. This is reflected in the data, with **51.72%** of casual rides occurring on weekends (including Friday), compared to only **37.98%** of member rides during the same days. When we examine the ridership numbers for members during the workweek (Monday through Friday), the percentage of member rides jumps to **76.09%**, further suggesting that member riders use the service most often for commuting.
 
 #### Comparison by Month
 ![MonthlyPercentage](plots/rides_by_month_percentage.png)
+
 Given Chicago's harsh winters, it makes sense that cycling becomes less appealing during the colder months. This trend is evident in the data, showing a noticeable increase in rides during the warmer months for both membership groups. From May to September, **almost 70%** (69.86%) of non-member rides occur between those months, compared to **56.80%** of member rides. This indicates that casual riders are more likely to use the cycling service during the warmer seasons, perhaps for sightseeing or urban transportation, suggesting that the pleasant weather encourages more use of the service among non-members.
 
 ### Location Data
@@ -132,6 +134,7 @@ From our analysis and the histogram, the mean trip time for casual riders is 22 
 
 #### Distance Traveled
 ![DistanceTraveled](plots/distance_traveled.png)
+
 A limitation of the distance traveled measurement is its inability to determine what was the exact distance traveled or route a rider took, since the distance calculation is simply a straight line from the start and end latitudes and longitudes. Although we don't have the route information, we can inferred an estimated distance traveled by using the Haversine formula. The distances are then binned into a histogram. Although the mean distance is almost the same for both groups, there are significantly more rides close to zero in distance completed by casual riders. This is due to how we calculated distance traveled. Lots of casual riders might start and end their ride at the same station. They might choose to bike a certain route to a sightseeing spot, and return to where they started the ride from. This is a possible explanation for the unusual number of short rides. Another possible explanation is first-time riders being unfamiliar with the sharebike software, leading them to accidentally rent a bike multiple times. Unless we have more data on the route taken by users, this is the best guess we can make on the distance data extrapolated from latitude and longitude.
 
 ### Conclusions
@@ -144,3 +147,23 @@ In the analysis of bike trip data from Cyclistic, clear differences between casu
 **Geographic Preferences Highlight Different Use Cases:** The location data reveals that casual riders favor bike stations along the Lake Michigan coast, which are likely near tourist attractions and recreational areas. Members, however, prefer stations in urban areas near offices and college campuses. This suggests that casual riders use the service to explore and enjoy the city, while members use it for practical, daily travel needs. The higher average trip time for casual riders (22 minutes) compared to members (13 minutes) supports this, as casual riders likely take longer trips for leisure, whereas members take shorter trips and are more utilitarian.
 
 ### Recommendations
+Given the results from our analysis and the conclusions drawn, there are lots of oppertunities to develop marketing strategies based on our newly found insights from the data. While there are various ways to convert casual users to members, it's also important to understand why casual riders might remain casual riders. By knowing the motivations of casual riders, we can better meet their needs by creating tailored passes and membership plans.
+
+**Set Ride Passes:** Instead of offering memberships with unlimited rides for a set period, consider creating a membership that allows riders to purchase a set of maybe 10 rides at a discounted price. Since most casual users ride for leisure and do not follow a fixed schedule, a set ride pass would let them use their 10 rides at their convenience. Additionally, including an expiry date on the passes can incentivize users to bike more frequently within a given timeframe.
+
+**Refer a Friend, Family Plans:** Since casual riders will often ride for leisure, this often means they are not riding alone. They might often ride with friends or family, so introducing referral programs or family plans could attract more new users to the sharebike service. For instance, member plans could offer the option to rent two bikes under one membership or provide discounts for new members who are referred by existing members.
+
+**Student Discounts:** Given that one of the popular stations for members is near the University of Chicago, introducing student discounts could create a consistent user base. Students need to commute between residential buildings and academic facilities and are likely to use the service regularly. Additionally, students are surrounded by peers, presenting opportunities for increased leisure activities along the Lake Michigan coast. Advertising on social media and collaborating with local universities could boost brand awareness and attract both potential new members and casual riders.
+
+**Seasonal Campaigns:** Since the months of May to September are the most popular with casual riders, the option to buy a summer member pass would tap into the increased demand from casual riders during the warmer months.
+
+**Sightseeing Passes:** Casual riders might actually not be residents of Chicago, and thus will not want to buy a long term membership. Day-passes already exist, but to incentivise more tourists to use the bikeshare service, discounted rates could be offered if riders choose to start or end their rides at stations near popular tourist attractions.
+
+**Targeted Location Marketing** We know which stations are most popular with casual riders, so using the nearby space for advertisements on membership plans and passes will increase awareness of not just the brand but the available ride plans and memberships. 
+
+### Data Limitations and Improvements
+Although we were able to gain data-driven insights to support marketing decisions, there were limitations to the data that prevented more detailed analysis. One key issue was the lack of data on travel distance and route patterns. While tracking the distance traveled is straightforward, storing route information would require complex data structures and significant storage capacity to record all locations along a route. To address this, tracking bike locations periodically and reconstructing routes using machine learning or mapping software could be a viable solution. The complexity and storage requirements likely explain why route information was not included in the original dataset.
+
+Another limitation was the lack of user IDs to differentiate between individual members and casual riders. This omission is likely due to data privacy concerns, as even anonymized user IDs could reveal sensitive information such as start and end locations, ride times, and other personal details. If the dataset were not public, such information might have been included.
+
+Additionally, some data entries were removed during the data cleaning stage due to impossible locational information, which might indicate issues with specific bikes. Identifying bikes by using a unique bike ID would help determine which bikes were faulty and allow for necessary repairs.
