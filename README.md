@@ -97,8 +97,8 @@ The data analysis can be seperated into 3 main areas:
 <p align="center">
   <table>
     <tr>
-      <td><img src="plots/rides_by_hour_count.png" alt="Image 1" width="300"/></td>
-      <td><img src="plots/rides_by_hour_percentage.png" alt="Image 2" width="300"/></td>
+      <td><img src="plots/rides_by_hour_count.png" alt="Image 1" width="500"/></td>
+      <td><img src="plots/rides_by_hour_percentage.png" alt="Image 2" width="500"/></td>
     </tr>
   </table>
 </p>
