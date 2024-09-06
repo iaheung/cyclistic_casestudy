@@ -1,6 +1,26 @@
 # cyclistic_casestudy
 Capstone Project (Google Data Analytics Course): Cyclistic Ridership Case Study 
 
+## Documentation
+
+[File 1](#file-1) | [File 2](#file-2) | [File 3](#file-3)
+
+---
+
+### File 1
+Detailed documentation for File 1 goes here.
+
+---
+
+### File 2
+Detailed documentation for File 2 goes here.
+
+---
+
+### File 3
+Detailed documentation for File 3 goes here.
+
+
 <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'file1')">File 1</button>
   <button class="tablinks" onclick="openTab(event, 'file2')">File 2</button>
