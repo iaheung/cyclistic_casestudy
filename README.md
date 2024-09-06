@@ -8,6 +8,9 @@ The **Cyclistic Bike Share Case Study** is a capstone project for the **Google D
 - [Contents and Usage](#contents-and-usage)
 - [Required Software and Packages](#required-software-and-packages)
 - [Project Background](#project-background)
+- [Business Task](#buisness-task)
+- [Data Sources](#data-sources)
+- [Data Cleaning and Processing Methodology](#data-cleaning-and-processing-methodology)
 
 ## Contents and Usage
 
@@ -15,7 +18,7 @@ The following repository is composed of mainly notebooks detailing the whole dat
 
 1. `data_preperation.ipynb` — Data Preperation (Pandas and SQL)
 2. `data_cleaning.ipynb` — Data Exploration, Data Cleaning (SQL)
-3. `data_analysis.ipynb` — Data Transformation, Data Analysis, Data Visualization (Pandas)
+3. `data_analysis.ipynb` — Data Transformation, Data Analysis, Data Visualization (Pandas, Matplotlib)
 
 ## Required Software and Packages
 
@@ -76,6 +79,26 @@ The data was obtained from an [online database](https://divvy-tripdata.s3.amazon
 
 ## Data Cleaning and Processing Methodology
 
-The data cleaning and processing was mostly done in SQL. In the `data_preperation.ipynb` notebook, the data from each month was first combined into one larger dataframe and put onto a local MySQL server. Then in the `data_cleaning.ipynb` notebook, I used SQL queries to explore the general structure of the data, and cleaned the data by converting column data types, interpreting null values, and removing invalid data, ensuring the data is prepared to be used for efficient and accurate data analysis. Then in the `data_analysis.ipynb` notebook, new columns such as trip time and distance traveled were created by using data from the original columns to make new metrics to analyze ridership differences. Then using a variety of Pandas functions and data visualization packages, ridership trends and patterns were identified and visualized.
+The data cleaning and processing was mostly done in SQL. In the `data_preperation.ipynb` notebook, the data from each month was first combined into one larger dataframe and put onto a local MySQL server. 
+
+In the `data_cleaning.ipynb` notebook, I used SQL queries to explore the general structure of the data, and cleaned the data by converting column data types, interpreting null values, and removing invalid data, ensuring the data is prepared to be used for efficient and accurate data analysis. 
+
+In the `data_analysis.ipynb` notebook, new columns such as trip time and distance traveled were created by using data from the original columns to make new metrics to analyze ridership differences. Then using a variety of Pandas functions and data visualization packages, ridership trends and patterns were identified and visualized.
+
+For more comprehensive details and documentation on the steps and methodology used, please review each of the notebooks.
 
 ## Analysis Summary
+The data analysis can be seperated into 3 main areas:
+
+- Temporal Analysis (Time of Day, Day of Week, Month)
+- Locaation Analysis
+- Ride Duration and Distance
+
+<p align="center">
+  <table>
+    <tr>
+      <td><img src="plots/rides_by_hour_count.png" alt="Image 1" width="300"/></td>
+      <td><img src="plots/rides_by_hour_percentage.png" alt="Image 2" width="300"/></td>
+    </tr>
+  </table>
+</p>
