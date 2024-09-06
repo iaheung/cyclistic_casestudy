@@ -110,7 +110,7 @@ Given Chicago's harsh winters, it makes sense that cycling becomes less appealin
 #### Location Data
 ![Locations](plots/LocationScreenshot.png)
 
-<iframe src="plots/stations_map.html" width="100%" height="600px"></iframe>
+[View the map](plots/stations_map.html)
 
 Folium was used to generate this map. There might be issues with displaying the interactive map, so here idoesn't come with a built-in legend, so I've used <span style="color: gray;">gray</span> markers to indicate the top 10 most popular stations for <span style="color: gray;">casual riders</span> and <span style="color: cyan;">blue</span> markers for the top 10 stations for <span style="color: cyan;">members</span>.
 
