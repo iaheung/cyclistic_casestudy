@@ -94,14 +94,24 @@ The data analysis can be seperated into 3 main areas:
 - Locaation Analysis
 - Ride Duration and Distance
 
-### Hourly Behaviour
+#### Comparison by Time of Day
+![HourlyPercentage](plots/rides_by_hour_percentage.png)
+
 A significant portion of members users likely use the sharebike service for commuting to work or school. Between 5:00 and 9:00, **20.41%** of member rides occur, compared to only **11.26%** for casual rides. It can be assumed that members primarily use sharebikes for commuting during these hours. On the other hand, between 10:00 to 15:00, casual rides overtake member rides, which is expected since commuters are less likely to ride during work hours. Casual riders during this period may include students heading to classes, tourists, or people riding leisurely or for exercise. Interestingly, between 16:00 and 18:00, we see a spike in bike usage for both members and casual riders, with **28.24%** of member rides and **26.81%** of casual rides taking place during this short time frame. While the increase for members aligns with typical commute patterns, the increase in casual rides also raises questions about the causes of this sudden increase. It may be due to non-members trying the service after work or simply because the time frame is a popular time for biking, possibly influenced by favorable weather or other external factors.
 
-![Cyclistic Bike](plots/rides_by_hour_percentage.png)
+#### Comparison by Day of the Week
+![DailyPercentage](plots/rides_by_day_percentrage.png)
+It's expected that casual users primarily ride the sharebikes on weekends, as they might not see the value in subscribing to the membership if they do not use the bikes for daily commuting. This is reflected in the data, with **51.72%** of casual rides occurring on weekends (including Friday), compared to only **37.98%** of member rides during the same days. When we examine the ridership numbers for members during the workweek (Monday through Friday), the percentage of member rides jumps to **76.09%**, further suggesting that member riders use the service most often for commuting.
 
-<figure>
-  <img src="plots/rides_by_hour_percentage.png" alt="Cyclistic Bike" width="400">
-  <figcaption>Figure 1: Percentage of Rides by Hour for Cyclistic</figcaption>
-</figure>
+#### Comparison by Month
+![MonthlyPercentage](plots/rides_by_month_percentrage.png)
+Given Chicago's harsh winters, it makes sense that cycling becomes less appealing during the colder months. This trend is evident in the data, showing a noticeable increase in rides during the warmer months for both membership groups. From May to September, **almost 70%** (69.86%) of non-member rides occur between those months, compared to **56.80%** of member rides. This indicates that casual riders are more likely to use the cycling service during the warmer seasons, perhaps for sightseeing or urban transportation, suggesting that the pleasant weather encourages more use of the service among non-members.
 
-It's expected that casual users primarily ride the bikes on weekends, as they might not see the value in subscribing to a membership. Casual riders may only use the service a few times a year, or the pricing structure may not appeal to those riding mostly on weekends. This is reflected in the data, with 51.72% of casual rides occurring on weekends (including Friday), compared to only 37.98% of member rides during the same period. When we examine the ridership numbers for members during the workweek (Monday through Friday), the percentage of member rides jumps to 76.09%, highlighting the tendency for members to ride primarily during weekdays, likely for commuting.
+#### Location Data
+![Locations](plots/LocationScreenshot.png)
+
+<iframe src="plots/stations_map.html" width="100%" height="600px"></iframe>
+
+Folium was used to generate this map. There might be issues with displaying the interactive map, so here idoesn't come with a built-in legend, so I've used <span style="color: gray;">gray</span> markers to indicate the top 10 most popular stations for <span style="color: gray;">casual riders</span> and <span style="color: cyan;">blue</span> markers for the top 10 stations for <span style="color: cyan;">members</span>.
+
+From the map, a clear trend emerges. Despite not being a local resident of Chicago or having extensive knowledge of the area, the data shows distinct patterns: casual riders tend to use sharebikes along the Lake Michigan coast, where there are more tourist attractions and leisure activities. In contrast, members generally favor sharebikes within urban areas, likely for commuting or urban transport. Notably, one of the most popular locations for members is near the University of Chicago, suggesting that a significant number of users might be using the bikes to travel around campus.
