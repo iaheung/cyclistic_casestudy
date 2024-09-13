@@ -4,7 +4,6 @@
 The **Cyclistic Bike Share Case Study** is a capstone project for the **Google Data Analytics Professional Certificate** on Coursera. In this project, use the skills I have learnt from the course, as well as applying some of my own Python and Pandas skills, to complete this capstone project. The goal of this project is to analyze publicly available ride data to generate insights on ridership patterns and differences between casual riders and members.  
 
 ## Table of contents
-- [Table of contents](#table-of-contents)
 - [Contents and Usage](#contents-and-usage)
 - [Required Software and Packages](#required-software-and-packages)
 - [Project Background](#project-background)
